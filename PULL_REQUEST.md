@@ -12,9 +12,9 @@
 This Pull Request introduces a **standalone, real-time Web UI dashboard** for `jev-router`. It enables developers using **Claude Code** (and other coding CLIs) to visually inspect every routing decision, model downgrade/upgrade tier, token savings, latency, and full request payloads in real time.
 
 ### Key Highlights
-1. **100% Standalone (Decoupled from `jev-gateway`):**
-   - Runs directly within `jev-router` without requiring or referencing any external supervisor or `jev-gateway` instance.
-   - Cleaned all header badges, links, and route descriptors so `jev-router` operates as an independent, first-class router with its own dedicated web console.
+1. **100% Native & Standalone:**
+   - Runs directly within `jev-router` as an embedded, zero-configuration web console for real-time monitoring.
+   - Operates independently with a dedicated `Claude Code` badge, real-time live heartbeat, and full turn inspection.
 2. **Customizable Port Configuration:**
    - Supports CLI flags: `--port <port>`, `-p <port>`.
    - Supports positional CLI arguments: `node bin/jev-dashboard.mjs 8790`.
@@ -37,7 +37,7 @@ This Pull Request introduces a **standalone, real-time Web UI dashboard** for `j
 ## 📸 Visual Walkthrough & UI Showcase
 
 ### 1. Dashboard Overview (Dark Theme & Light Theme)
-> Clean standalone UI with Radix Themes styling, live router status, metric tiles, and real-time telemetry stream. All references to external supervisors / `Gateway: 8785` have been completely removed in favor of a dedicated `Claude Code` router badge.
+> Clean standalone UI with Radix Themes styling, live router status, metric tiles, and real-time telemetry stream with dedicated `Claude Code` routing telemetry.
 
 | Dark Theme | Light Theme |
 |:---:|:---:|
@@ -122,7 +122,7 @@ flowchart TD
 
 ### 2. `src/dashboard.html` (Radix UI Frontend)
 - **Zero Build Step:** Runs directly in browser via ES modules and Radix stylesheets.
-- **Header:** Displays clean `J jev-router` branding with `Claude Code` pill badge (decoupled from any gateway references).
+- **Header:** Displays clean `J jev-router` branding with `Claude Code` pill badge and live heartbeat indicator.
 - **Time Formatting:** Computes Thai local time (`en-GB`, 24-hour format, timeZone: `'Asia/Bangkok'`).
 - **Telemetry Table Columns:**
   1. `Seq` (Monotonic counter)
@@ -208,4 +208,4 @@ All prompts entered into Claude Code will appear live in the Web UI dashboard!
 - Verified test suite passes 100%.
 - Verified HTTP server starts cleanly and serves valid HTML with Radix UI CSS.
 - Verified `/events` JSON payload structure and `/api/stats` metrics.
-- Verified zero references to external supervisor or `jev-gateway`.
+- Verified clean standalone operation with zero external dependencies.

@@ -34,6 +34,45 @@ This Pull Request introduces a **standalone, real-time Web UI dashboard** for `j
 
 ---
 
+## 📸 Visual Walkthrough & UI Showcase
+
+### 1. Dashboard Overview (Dark Theme & Light Theme)
+> Clean standalone UI with Radix Themes styling, live router status, metric tiles, and real-time telemetry stream. All references to external supervisors / `Gateway: 8785` have been completely removed in favor of a dedicated `Claude Code` router badge.
+
+| Dark Theme | Light Theme |
+|:---:|:---:|
+| ![Dark Overview](https://raw.githubusercontent.com/piratchai/jev-router/feat/realtime-radix-web-dashboard/docs/screenshots/03-dashboard-dark-overview.png) | ![Light Overview](https://raw.githubusercontent.com/piratchai/jev-router/feat/realtime-radix-web-dashboard/docs/screenshots/01-dashboard-light-overview.png) |
+
+---
+
+### 2. Standalone Header & Live Status Card
+> Real-time heartbeat indicator, client selector (`claude-code`), time range filters (`15 min`, `1 h`, `24 h`, `All`), one-click theme switcher, and model routing toggle (`Switch routing off / on`).
+
+![Header and Status](https://raw.githubusercontent.com/piratchai/jev-router/feat/realtime-radix-web-dashboard/docs/screenshots/04-header-and-status-dark.png)
+
+---
+
+### 3. Aggregated Telemetry Tiles
+> Live count of total requests, percentage routed by TypeSafe Jev, token throughput, and net tokens saved vs baseline Opus.
+
+![Totals Metrics](https://raw.githubusercontent.com/piratchai/jev-router/feat/realtime-radix-web-dashboard/docs/screenshots/05-totals-metrics.png)
+
+---
+
+### 4. Categorical Request Breakdown & Token Comparison
+> Visual distribution of model selections (e.g. Sonnet 5 low effort vs Haiku vs Opus) and token cost comparison against baseline unrouted execution.
+
+![Breakdowns](https://raw.githubusercontent.com/piratchai/jev-router/feat/realtime-radix-web-dashboard/docs/screenshots/06-request-breakdowns.png)
+
+---
+
+### 5. Real-Time Telemetry Table (Thailand Time 24h & Exact Routing Metadata)
+> Every turn is logged with a 24-hour Thailand timestamp (`HH:mm:ss`), client ID, API path, upstream target model, tool roster count, mode, and forced tool picks.
+
+![Recent Requests Table](https://raw.githubusercontent.com/piratchai/jev-router/feat/realtime-radix-web-dashboard/docs/screenshots/07-recent-requests-table.png)
+
+---
+
 ## 🏗️ Architecture & Component Design
 
 ```mermaid
